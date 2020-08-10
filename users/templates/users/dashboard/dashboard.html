@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dahboard | BitsPlease</title>
+	{% load static  %}
+		<link rel="stylesheet" type="text/css" href="{% static '/users/dashboard.css' %}">
+		<link href="https://fonts.googleapis.com/css?family=Lato|Righteous" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+	<div class="dashboard_wrapper">
+		<div class="dashboard_header">
+			<div class="dashboard_brand">
+				{# Hamburger menu  #}
+				<h1 class="dashboard_title">BitsPlease</h1>
+			</div>
+
+			<div class="dashboard_user_menu">
+				<div class="user_info" id="user_info">
+					<img src="{% static 'users/images/user.png' %}" class="user_profile_image">
+					<h1 class="user_name">{{user.first_name}} {{user.last_name}}</h1>
+					<ul class="user_menu" id="user_menu">
+						<li class="user_menu_item"><a href="#">Edit Profile</a></li>
+						<li class="user_menu_item"><a href="#">Settings</a></li>
+						<li class="user_menu_item"><a href="{% url 'logout' %}">Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		
+			<div class="dashboard_main_content">
+
+			<div class="dashboard_left_menu">
+				{% block dashboard_menu %}
+					<ul class="nav-menu">
+				          <li><a href="/home/">Home</a></li>
+				          <li><a href="/about/">About</a></li>
+				          <li><a href="/packages/">Packages</a></li>
+				          <li><a href="/hotels/">Hotels</a></li>
+				          <li><a href="/insurance/">Insurence</a></li>
+				          <li class="menu-has-children"><a href="">Blog</a>
+				            <ul>
+				              <li><a href="/bloghome/">Blog Home</a></li>
+				              <li><a href="/blogsingle/">Blog Single</a></li>
+				            </ul>
+
+				{% endblock %}
+			</div>
+			<div  class="dashboard_content">
+			{% block dashboard_content%}
+				<h1>Hotel Dashboard hi </h1>
+				<div class="alert alert-primary" role="alert">
+  This is a primary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+</div>
+<div class="alert alert-secondary" role="alert">
+  This is a secondary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+</div>
+<div class="alert alert-success" role="alert">
+  This is a success alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+</div>
+<div class="alert alert-danger" role="alert">
+  This is a danger alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+</div>
+<div class="alert alert-warning" role="alert">
+  This is a warning alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+</div>
+<div class="alert alert-info" role="alert">
+  This is a info alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+</div>
+<div class="alert alert-light" role="alert">
+  This is a light alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+</div>
+<div class="alert alert-dark" role="alert">
+  This is a dark alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+</div>
+			{% endblock %}
+			</div>
+			
+		</div>
+		
+	</div>
+	<script type="text/javascript" src="{% static 'users/js/script.js' %}"></script>
+</body>
+</html>
